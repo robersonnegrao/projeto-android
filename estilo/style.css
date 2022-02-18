@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'Android'; src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+} /* fonte dada nos arquivos do projeto */
+
+/* #c5ebd6 #83e1ad #3ddc84 #2fa866 #1a5c37 #063d1e cores da paleta escolhida para trabalhar*/
+
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive; /* importada conforme acima */
+    --fonte-android: 'Android', cursive;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+} /* seletor global, serve para tirar as margens e paddins de todo o documento */
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after {
+    content: '\00A0\1f517'; /* para incluir nos links externos um emoji indicando isso, inclusive tendo que criar class a externo no html nos locais próprios */
+}
+
+header {
+    /* background-color: var(--cor4); retirado para inclusão do degradê abaixo*/
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal; /* tirando o negrito padrão */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.425);
+}
+
+header > p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: auto;
+    /* margin-bottom: 2px;   NÃO DEU CERTO, ELE CRIA UM ESPAÇO COM COR DE FUNDO ENTRE O MENU E O HEADER*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.425);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 20px 10px; /* inseri o 20px para tirar o problema gerado pelo margin-bottom acima */
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.315);
+}
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px;
+    border-radius: 5px; /* borda arredondada */
+    text-decoration: none;
+    font-weight: bold; /* negrito */
+    
+}
+
+nav > a:hover {
+    background-color: var(--cor3);
+    color: var(--cor5);
+    transition-duration: .5s; /* quando passar o mouse por cima, faz a transição para o novo formato. o professor incluiu isso no nav > a e não aqui */
+}
+
+main {
+    min-width: 300px;
+    max-width: 1000px; /* para conteúdo se adaptar a janela */
+    margin: auto; /* para centralizar do o conteudo do main, mesmo quando arrastar a janela */
+    margin-bottom: 30px; /* deixar o main mais separado do footer */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.411);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;/* incluiu essas duas bordas abaixo para em cima ficar sem arredondamento */
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal; /* tirando o negrito padrão */
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal; /* tirando o negrito padrão */
+    background-image: linear-gradient(to right, var(--cor1), transparent); /* inclui um degradê de uma cor a transparente */
+    text-indent: 8px; /* poderia ser um padding só na esquerda tbm */
+}
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px; /* deslocamento do início da primeira linha */
+    font-size: 1em; /* tamanho da fonte */
+    line-height: 2em; /* entrelinha */
+} /* aqui não foi colocado > no p para acionar todos os parágrafos dentro do main, inclusive nos articles e divs */
+
+main strong {
+    color: var(--cor3);
+    font-weight: bold;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 4px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor3);
+}
+
+main img{
+    width: 100%; /* para as imagens se adaptarem ao conteudo da janela */
+}
+
+main img.pequena {
+    /* width: 50%; class criada pq a imagem estava muito grande e retirada pq no quadro grande ficava desfocado, por isso foi criada a de baixo */
+    max-width: 350px; /* como a imagem tem 400, deixamos um pouco menos para não desfocar a resolução */
+    display: block; /* só com margin auto a img náo centraliza pq não é um bloco, então teve que incluir esse display */
+    margin: auto; 
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /* margens para o verde da div ficar rente ao main */
+    padding: 20px;
+    padding-bottom: 59%; /* para ajeitar o video dentro do espaço verde, pois tinha saído devido as instruções de position relative e absolute */
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute; /* quando se coloca o absolute, dá para usar o top e o left e o width com height */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    padding: 5px;
+    margin: -10px -10px 0px -10px; /* para deixar a margem do h3 junto com a do aside */
+    border-radius: 10px 10px 0px 0px; /* arredondando só as bordas de cima */
+}
+
+aside > ul {
+    list-style-type: "\2714\00A0\00A0";
+    list-style-position: inside; /* colocar os marcadores dentro da parte verde do aside */
+    columns: 2;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
